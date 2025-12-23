@@ -1883,6 +1883,7 @@ void M_LoadDefaults (void)
     int i;
  
     // check for a custom default file
+    printf("hello world\n");
 
     //!
     // @arg <file>
@@ -1906,6 +1907,7 @@ void M_LoadDefaults (void)
     }
 
     printf("saving config in %s\n", doom_defaults.filename);
+    
 
     //!
     // @arg <file>
@@ -1947,11 +1949,11 @@ static default_t *GetDefaultForName(char *name)
         result = SearchCollection(&extra_defaults, name);
     }
 
-    // Not found? Internal error.
+    // Not found? Just warn, don't crash.
 
     if (result == NULL)
     {
-        I_Error("Unknown configuration variable: '%s'", name);
+        printf("Unknown configuration variable: '%s'\n", name);
     }
 
     return result;
@@ -1966,6 +1968,11 @@ void M_BindVariable(char *name, void *location)
     default_t *variable;
 
     variable = GetDefaultForName(name);
+
+    if (variable == NULL)
+    {
+        return;  // Unknown variable, just skip
+    }
 
     variable->location = location;
     variable->bound = true;

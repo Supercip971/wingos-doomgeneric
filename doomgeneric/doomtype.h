@@ -72,8 +72,6 @@ typedef bool boolean;
 
 typedef enum 
 {
-    false	= 0,
-    true	= 1,
 	undef	= 0xFFFFFFFF
 } boolean;
 

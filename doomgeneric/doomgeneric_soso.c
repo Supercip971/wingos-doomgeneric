@@ -172,13 +172,13 @@ void DG_Init()
     argPosX = M_CheckParmWithArgs("-posx", 1);
     if (argPosX > 0)
     {
-        sscanf(myargv[argPosX + 1], "%d", &s_PositionX);
+       // sscanf(myargv[argPosX + 1], "%d", &s_PositionX);
     }
 
     argPosY = M_CheckParmWithArgs("-posy", 1);
     if (argPosY > 0)
     {
-        sscanf(myargv[argPosY + 1], "%d", &s_PositionY);
+       // sscanf(myargv[argPosY + 1], "%d", &s_PositionY);
     }
 }
 
